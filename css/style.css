@@ -1,0 +1,80 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     clear: both;
+     content: ".";
+     display: block;
+     height: 0;
+     line-height: 0;
+     visibility: hidden;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+  align-items: center;
+  display: grid;
+  justify-content: center;
+}
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header {
+
+}
+
+footer {
+
+}
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+h1, h2{
+  align-items: center;
+  display: grid;
+  justify-content: center;
+}
+/* .dia1{
+  background: green;
+} */
+.winner{
+  background: seagreen;
+  font-size: 3rem;
+  color: white;
+}
+
+#gameBoard{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+#gameBoard2{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+}
+
+.square{
+  display: grid;
+  font-size: 2rem;
+  align-items: center;
+  border: 1px solid blue;
+  border-radius: 5px;
+  height: 6rem;
+  justify-content: center;
+  width: 6rem;
+}
