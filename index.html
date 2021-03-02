@@ -13,21 +13,44 @@
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
-    <h1 id="resetdblClick">TIC-TAC-TOE</h1>
-<div id="gameBoard">
-  <div id="square00" class="square row0 col0 dia1"></div>
-  <div id="square01" class="square row0 col1"></div>
-  <div id="square02" class="square row0 col2 dia2"></div>
+    <h1>TIC-TAC-TOE</h1>
+  <div id="gameContainer">  
+    <div id="options">
+      <div id="players">
+        <h3>Options</h3>
+        <div id="p1" class="player">
+          <span class="playerHdr">P1:</span> 
+          <input type="text" name="p1Name" id="p1Name" class="input name">
+          <input type="text" name="p1Icon" id="p1Icon" class="input icon">
+        </div>
+        <div id="p2" class="player">
+          <span class="playerHdr">P2:</span>
+          <input type="text" name="p2Name" id="p2Name" class="input name">
+          <input type="text" name="p2Icon" id="p2Icon" class="input icon">
+        </div>
+      </div>
+    </div>
+    
+    <div>
+      <div id="gameBoard">
+        <div id="square00" class="square row0 col0 dia1"></div>
+        <div id="square01" class="square row0 col1"></div>
+        <div id="square02" class="square row0 col2 dia2"></div>
 
-  <div id="square10" class="square row1 col0"></div>
-  <div id="square11" class="square row1 col1 dia1 dia2"></div>
-  <div id="square12" class="square row1 col2"></div>
+        <div id="square10" class="square row1 col0"></div>
+        <div id="square11" class="square row1 col1 dia1 dia2"></div>
+        <div id="square12" class="square row1 col2"></div>
 
-  <div id="square20" class="square row2 col0 dia2"></div>
-  <div id="square21" class="square row2 col1"></div>
-  <div id="square22" class="square row2 col2 dia1"></div>
-</div>
-<h2></h2>
+        <div id="square20" class="square row2 col0 dia2"></div>
+        <div id="square21" class="square row2 col1"></div>
+        <div id="square22" class="square row2 col2 dia1"></div>
+      </div>
+      <h2>winner goes here</h2>
+    </div>
+    <div id="scoreboard">
+      <h3>Scoreboard</h3>
+    </div>
+  </div>
 <!-- <div id="gameBoard2">
   <div id="square00" class="square">00</div>
   <div id="square01" class="square">01</div>
