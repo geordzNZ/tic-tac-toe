@@ -84,27 +84,27 @@ document.getElementById('gameBoard').addEventListener('click', function(e) {
     let dia2 = (arrGameBoard[0][2] + arrGameBoard[1][1] + arrGameBoard[2][0])
 
     if (row0 === p1W || row1 === p1W || row2 === p1W){
-        document.querySelector("h2").innerText = `${p1I}'s win the game1`
+        document.querySelector("h2").innerText = `${p1I}'s win the game`
         gameOver = true
         highlightWinner('r',row0,row1,row2)
     } else if (row0 === p2W || row1 === p2W || row2 === p2W){
-        document.querySelector("h2").innerText = `${p2I}'s win the game2`
+        document.querySelector("h2").innerText = `${p2I}'s win the game`
         gameOver = true
         highlightWinner('r',row0,row1,row2)
     } else if (col0 === p1W || col1 === p1W || col2 === p1W){
-        document.querySelector("h2").innerText = `${p1I}'s win the game3`
+        document.querySelector("h2").innerText = `${p1I}'s win the game`
         gameOver = true
         highlightWinner('c',col0,col1,col2)
     } else if (col0 === p2W || col1 === p2W || col2 === p2W){
-        document.querySelector("h2").innerText = `${p2I}'s win the game4`
+        document.querySelector("h2").innerText = `${p2I}'s win the game`
         gameOver = true
         highlightWinner('c',col0,col1,col2)
       } else if (dia1 === p1W || dia2 === p1W){
-        document.querySelector("h2").innerText = `${p1I}'s win the game5`
+        document.querySelector("h2").innerText = `${p1I}'s win the game`
         gameOver = true
         highlightWinner('d', dia1, dia2)
       } else if (dia1 === p2W || dia2 === p2W){
-        document.querySelector("h2").innerText = `${p2I}'s win the game6`
+        document.querySelector("h2").innerText = `${p2I}'s win the game`
         gameOver = true
         highlightWinner('d', dia1, dia2)
       } else if (ctr === 10) {
