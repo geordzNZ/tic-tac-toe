@@ -24,7 +24,7 @@
 body {
   display:grid;
   align-content: center;
-  background: lightgray;
+  background: #bbb;
   border: 1px black solid;
   width: 80%;
   margin: auto;
@@ -113,6 +113,9 @@ h4{
   border-radius: 3px;
   border: none;
 }
+
 .icon{
   width: 2rem;
+  background: #ddd;
+  text-align: center;
  }
