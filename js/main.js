@@ -26,7 +26,7 @@ document.addEventListener('click', function(e) {
     let row0 = (arrGameBoard[0].join(''))
     let row1 = (arrGameBoard[1].join(''))
     let row2 = (arrGameBoard[2].join(''))
-    
+
     let col0 = (arrGameBoard[0][0] + arrGameBoard[1][0] + arrGameBoard[2][0])
     let col1 = (arrGameBoard[0][1] + arrGameBoard[1][1] + arrGameBoard[2][1])
     let col2 = (arrGameBoard[0][2] + arrGameBoard[1][2] + arrGameBoard[2][2])
@@ -106,3 +106,8 @@ function highlightWinner(winType,a,b,c = 0){
     }
   }
 }
+
+//Adding JS for reset
+document.querySelector('#reset').addEventListener('click' , function (r) {
+  document.location.reload(true)
+})
