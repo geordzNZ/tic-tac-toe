@@ -2,7 +2,11 @@ let  arrGameBoard = [['-','-','-'],['-','-','-'],['-','-','-']]
 let ctr = 1
 let gameOver = false
 
-document.addEventListener('click', function(e) {
+
+
+
+document.getElementById('gameBoard').addEventListener('click', function(e) {
+  console.log('In game engine')
   let curSelection = e.target
   let curID = e.target.id
   let rowNum = curID.substring(6,7)
