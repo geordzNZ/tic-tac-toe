@@ -98,7 +98,7 @@ h4{
   border-radius: 5px;
   height: 6rem;
   justify-content: center;
-  width: 100%;
+  /* width: 100%; */
 }
 #scoreboard{
   display: block;
