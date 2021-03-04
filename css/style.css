@@ -131,3 +131,6 @@ h4{
   background: #ddd;
   text-align: center;
  }
+ .hidden{
+   display: none;
+ }
