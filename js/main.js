@@ -1,52 +1,52 @@
-import Player from './player.js'
+//import Player from './player.js'
+
+// Set up player class
+class Player{
+  constructor(name){
+    this.name = name
+    this.icon = name[0].toUpperCase()
+    this.winString = ''.padEnd(3,this.icon)
+  }
+}
+
+const p1 = new Player(document.querySelector('#p1Name').value)
+const p2 = new Player(document.querySelector('#p2Name').value)
 
 // GENERAL VARIABLES
 let  arrGameBoard = [['-','-','-'],['-','-','-'],['-','-','-']]
 let ctr = 1
 let gameOver = false
-// let p1N
-// let p1I
-// let p2N
-// let p2I
-// let p1W
-// let p2W
+
 
 // EVENT HANDLERS
 document.getElementById('setPlayers').addEventListener('click', playerSetup)
 
 function playerSetup(){
   console.log('...playerSetup...')
-  let p1 = new Player(document.querySelector('#p1Name').value) 
-  let p2 = new Player(document.querySelector('#p2Name').value) 
-  
-  // p1N = document.querySelector('#p1Name').value
-  // p1I = p1N[0].toUpperCase()
-  // p2N = document.getElementById('p2Name').value
-  // p2I = p2N[0].toUpperCase()
-  // console.log(p1N + '   /   ' + p1I)
-  // console.log(p2N + '   /   ' + p2I)
+  console.log('p1 = ' + p1.name + ' / ' + p1.icon + ' / ' + p1.winString)
+  console.log('p2 = ' + p2.name + ' / ' + p2.icon + ' / ' + p2.winString)
 
 
   document.getElementById('p1Icon').value = p1.icon
-  // p1W = ''.padEnd(3,p1I)
 
   if (p1.icon === p2.icon){
     // console.log('x1')
     if (p1.icon === 'X'){
       // console.log('x2')
       p2.icon = 'O'
+      console.log('-2- ' + p2.icon + '   /   ' + p2.winString)
       document.getElementById('p2Icon').value = p2.icon
     } else {
       // console.log('x3')
       p2.icon = 'X'
+      console.log('-3- ' + p2.icon + '   /   ' + p2.winString)
       document.getElementById('p2Icon').value = p2.icon
     }
   } else {
     // console.log('x4')
+    console.log('-4- ' + p2.icon + '   /   ' + p2.winString)
     document.getElementById('p2Icon').value = p2.icon
   }
-  // p1W = ''.padEnd(3,p1I)
-  // p2W = ''.padEnd(3,p2I)
 }
 
 
@@ -93,7 +93,7 @@ document.getElementById('gameBoard').addEventListener('click', function(e) {
         document.getElementById("winMsg").classList.remove('hidden')
         gameOver = true
         highlightWinner('r',row0,row1,row2)
-    } else if (row0 === p.winString || row1 === p.winString || row2 === p.winString){
+    } else if (row0 === p2.winString || row1 === p2.winString || row2 === p2.winString){
         document.querySelector("h2").innerText = `${p2.icon}'s win the game`
         document.getElementById("winMsg").classList.remove('hidden')
         gameOver = true
@@ -103,7 +103,7 @@ document.getElementById('gameBoard').addEventListener('click', function(e) {
         document.getElementById("winMsg").classList.remove('hidden')
         gameOver = true
         highlightWinner('c',col0,col1,col2)
-    } else if (col0 === p.winString || col1 === p.winString || col2 === p.winString){
+    } else if (col0 === p2.winString || col1 === p2.winString || col2 === p2.winString){
         document.querySelector("h2").innerText = `${p2.icon}'s win the game`
         document.getElementById("winMsg").classList.remove('hidden')
         gameOver = true
@@ -136,7 +136,7 @@ function highlightWinner(winType,a,b,c = 0){
       document.getElementById("square10").classList.add('winner')
       document.getElementById("square11").classList.add('winner')
       document.getElementById("square12").classList.add('winner')
-    } else if (c === p.winStringW || c === p2.winString){
+    } else if (c === p.winString || c === p2.winString){
       document.getElementById("square20").classList.add('winner')
       document.getElementById("square21").classList.add('winner')
       document.getElementById("square22").classList.add('winner')
