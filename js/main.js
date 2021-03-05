@@ -1,16 +1,15 @@
 //import Player from './player.js'
 
 // Set up player class
-class Player{
-  constructor(name){
-    this.name = name
-    this.icon = name[0].toUpperCase()
-    this.winString = ''.padEnd(3,this.icon)
-  }
-}
+// class Player{
+//   constructor(name){
+//     this.name = name
+//     this.icon = name[0].toUpperCase()
+//     this.winString = ''.padEnd(3,this.icon)
+//   }
+// }
 
-const p1 = new Player(document.querySelector('#p1Name').value)
-const p2 = new Player(document.querySelector('#p2Name').value)
+
 
 // GENERAL VARIABLES
 let  arrGameBoard = [['-','-','-'],['-','-','-'],['-','-','-']]
@@ -23,6 +22,8 @@ document.getElementById('setPlayers').addEventListener('click', playerSetup)
 
 function playerSetup(){
   console.log('...playerSetup...')
+  const p1 = new Player(document.querySelector('#p1Name').value)
+  const p2 = new Player(document.querySelector('#p2Name').value)
   console.log('p1 = ' + p1.name + ' / ' + p1.icon + ' / ' + p1.winString)
   console.log('p2 = ' + p2.name + ' / ' + p2.icon + ' / ' + p2.winString)
 
