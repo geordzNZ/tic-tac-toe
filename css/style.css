@@ -26,7 +26,7 @@ body {
   align-content: center;
   background: #bbb;
   border: 1px black solid;
-  width: 80%;
+  width: 70%;
   margin: auto;
 }
 
@@ -61,33 +61,57 @@ h4{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 1rem;
-  margin: 0px auto;
+  margin: 0 auto;
   justify-content: space-between;
-  width: 80%;
+  max-width: 1350px;
 }
 #options{
   display: block;
+  max-width: 300px;
   /* border: 1px solid black; */
 }
 .player{
   display: grid;
-  grid-template-columns: repeat(3, 25% 50% 25%);
+  grid-template-columns: 25% 60% 15%;
   justify-content:space-between;
 }
 .playerHdr{
   font-size: 1.5rem;
 }
+
+#players {
+  height: 100%;
+  justify-content: space-around;
+  padding-right: 30px;
+}
+
+#players h3{
+  margin:0;
+}
+
+#players input{
+  width: 100%;
+}
+
+#players span {
+  /* text-align:end; */
+  padding-left: 15px;
+}
+
+
+
 #optionButtons{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 2rem;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 #gameBoard{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
+  max-width: 288px;
 }
 
 .square{
@@ -97,6 +121,7 @@ h4{
   border: 1px solid blue;
   border-radius: 5px;
   height: 6rem;
+  width: 6rem;
   justify-content: center;
   /* width: 100%; */
 }
@@ -130,4 +155,27 @@ h4{
   width: 2rem;
   background: #ddd;
   text-align: center;
- }
+}
+
+/* Responsive */
+
+@media(max-width: 1350px){
+  #gameContainer{
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    gap: 20px;
+  }
+}
+
+/* Utilities */
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-1{
+ margin: 50px auto;
+}
