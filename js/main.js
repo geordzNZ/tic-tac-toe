@@ -27,7 +27,9 @@ function playerSetup(){
   console.log('p1 = ' + p1.name + ' / ' + p1.icon + ' / ' + p1.winString)
   console.log('p2 = ' + p2.name + ' / ' + p2.icon + ' / ' + p2.winString)
 
-    
+
+    localStorage.setItem('p1', JSON.stringify(p1))
+    localStorage.setItem('p2', JSON.stringify(p2))
 
   
     document.getElementById('p1Icon').value = p1.icon
@@ -52,13 +54,14 @@ function playerSetup(){
     }
     
         //store player info into local storage
-        localStorage.setItem('p1', JSON.stringify(p1))
-        localStorage.setItem('p2', JSON.stringify(p2))
+        // localStorage.setItem('p1', JSON.stringify(p1))
+        // localStorage.setItem('p2', JSON.stringify(p2))
+        
 }
 
 
 document.getElementById('gameBoard').addEventListener('click', function(e) {
-  console.log('...GAME ENGINE...')
+    console.log('...GAME ENGINE...')
   if (p1.name === undefined || p2.name === undefined) { playerSetup()}
   // console.log(p1N + '   /   ' + p1I + '   /   ' + p1W)
   // console.log(p2N + '   /   ' + p2I + '   /   ' + p2W)
