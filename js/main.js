@@ -27,8 +27,10 @@ function playerSetup(){
   console.log('p1 = ' + p1.name + ' / ' + p1.icon + ' / ' + p1.winString)
   console.log('p2 = ' + p2.name + ' / ' + p2.icon + ' / ' + p2.winString)
 
+    
 
-  document.getElementById('p1Icon').value = p1.icon
+  
+    document.getElementById('p1Icon').value = p1.icon
 
   if (p1.icon === p2.icon){
     // console.log('x1')
@@ -47,7 +49,11 @@ function playerSetup(){
     // console.log('x4')
     console.log('-4- ' + p2.icon + '   /   ' + p2.winString)
     document.getElementById('p2Icon').value = p2.icon
-  }
+    }
+    
+        //store player info into local storage
+        localStorage.setItem('p1', JSON.stringify(p1))
+        localStorage.setItem('p2', JSON.stringify(p2))
 }
 
 
@@ -171,5 +177,7 @@ function highlightWinner(winType,a,b,c = 0){
 
 //Adding JS for reset
 document.querySelector('#reset').addEventListener('click' , function (r) {
-  document.location.reload(true)
+    localStorage.clear(p1)
+    localStorage.clear(p2)
+    document.location.reload(true)
 })
