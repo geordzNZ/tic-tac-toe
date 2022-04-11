@@ -30,6 +30,7 @@ function playerSetup(){
 
     localStorage.setItem('p1', JSON.stringify(p1))
     localStorage.setItem('p2', JSON.stringify(p2))
+    localStorage.setItem('score', 0)
 
   
     document.getElementById('p1Icon').value = p1.icon
