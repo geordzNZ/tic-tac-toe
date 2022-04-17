@@ -24,8 +24,8 @@
 body {
   display:grid;
   align-content: center;
-  background: #bbb;
-  border: 1px black solid;
+  background: beige;
+  /* border: 1px black solid; */
   width: 80%;
   margin: auto;
 }
@@ -79,7 +79,7 @@ h4{
 }
 #optionButtons{
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1fr,1fr,1fr);
   column-gap: 2rem;
   justify-content: space-between;
 }
@@ -129,19 +129,23 @@ h4{
 .icon{
   width: 2rem;
   background: #ddd;
+  font-weight: 900;
+  text-decoration: underline;
   text-align: center;
  }
 
  #winMsg{
    position: absolute;
-   top: 190px;
-   left: 770px;
    width: 380px;
    height: 50px;
    vertical-align: center;
    background: seagreen;
    color: white;
    letter-spacing: 1.5px;
+   border-radius: 5px;
+   border: 1px blue solid;
+   align-items: center;
+   justify-content: center;
  }
  .hidden{
    display: none;

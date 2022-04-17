@@ -1,39 +1,50 @@
 //import Player from './player.js'
 
-// Set up player class
-// class Player{
-//   constructor(name){
-//     this.name = name
-//     this.icon = name[0].toUpperCase()
-//     this.winString = ''.padEnd(3,this.icon)
-//   }
-// }
+//Set up player class
+class Player{
+  constructor(name){
+    this.name = name
+    this.icon = name== '' ? '': name[0].toUpperCase()
+    this.winString = ''.padEnd(3,this.icon)
+  }
+}
 
+// EVENT HANDLERS
+document.getElementById('setPlayers').addEventListener('click', playerSetup)
 
 
 // GENERAL VARIABLES
 let  arrGameBoard = [['-','-','-'],['-','-','-'],['-','-','-']]
 let ctr = 1
 let gameOver = false
+let p1 = new Player(document.querySelector('#p1Name').value)
+let p2 = new Player(document.querySelector('#p2Name').value)
+localStorage.setItem('p1score', 0)
+localStorage.setItem('p2score', 0)
+ 
+console.log('a', p1)
+console.log('a',p2)
 
 
-// EVENT HANDLERS
-document.getElementById('setPlayers').addEventListener('click', playerSetup)
+
 
 function playerSetup(){
   console.log('...playerSetup...')
-  const p1 = new Player(document.querySelector('#p1Name').value)
-  const p2 = new Player(document.querySelector('#p2Name').value)
-  console.log('p1 = ' + p1.name + ' / ' + p1.icon + ' / ' + p1.winString)
-  console.log('p2 = ' + p2.name + ' / ' + p2.icon + ' / ' + p2.winString)
+    console.log('b', p1)
+    console.log('b', p2)
+    
+    p1 = new Player(document.querySelector('#p1Name').value)
+    p2 = new Player(document.querySelector('#p2Name').value)
 
+    if (p1.name == '') {
+        alert('Please enter Player 1 name')
+        return
+    } else if (p2.name == '') {
+        alert('Please enter Player 2 name')
+        return
+    }
 
-    localStorage.setItem('p1', JSON.stringify(p1))
-    localStorage.setItem('p2', JSON.stringify(p2))
-    localStorage.setItem('score', 0)
-
-  
-    document.getElementById('p1Icon').value = p1.icon
+  document.getElementById('p1Icon').value = p1.icon
 
   if (p1.icon === p2.icon){
     // console.log('x1')
@@ -50,29 +61,22 @@ function playerSetup(){
     }
   } else {
     // console.log('x4')
-    console.log('-4- ' + p2.icon + '   /   ' + p2.winString)
+    // console.log('-4- ' + p2.icon + '   /   ' + p2.winString)
     document.getElementById('p2Icon').value = p2.icon
-    }
-    
-        //store player info into local storage
-        // localStorage.setItem('p1', JSON.stringify(p1))
-        // localStorage.setItem('p2', JSON.stringify(p2))
-        
+    }        
 }
 
 
 document.getElementById('gameBoard').addEventListener('click', function(e) {
     console.log('...GAME ENGINE...')
   if (p1.name === undefined || p2.name === undefined) { playerSetup()}
-  // console.log(p1N + '   /   ' + p1I + '   /   ' + p1W)
-  // console.log(p2N + '   /   ' + p2I + '   /   ' + p2W)
-
+    
 
   let curSelection = e.target
-  let curID = e.target.id
-  let rowNum = curID.substring(6,7)
-  let colNum = curID.substring(7,8)
-  let curSquare = document.getElementById(curID)
+    let curID = e.target.id
+    let rowNum = curID.substring(6,7)
+    let colNum = curID.substring(7,8)
+    let curSquare = document.getElementById(curID)
 
   if (curID === '' || gameOver === true){
     return ''
@@ -90,7 +94,7 @@ document.getElementById('gameBoard').addEventListener('click', function(e) {
   if (ctr >= 6){
     let row0 = (arrGameBoard[0].join(''))
     let row1 = (arrGameBoard[1].join(''))
-    let row2 = (arrGameBoard[2].join(''))
+      let row2 = (arrGameBoard[2].join(''))
 
     let col0 = (arrGameBoard[0][0] + arrGameBoard[1][0] + arrGameBoard[2][0])
     let col1 = (arrGameBoard[0][1] + arrGameBoard[1][1] + arrGameBoard[2][1])
@@ -100,32 +104,37 @@ document.getElementById('gameBoard').addEventListener('click', function(e) {
     let dia2 = (arrGameBoard[0][2] + arrGameBoard[1][1] + arrGameBoard[2][0])
 
     if (row0 === p1.winString || row1 === p1.winString || row2 === p1.winString){
-        document.querySelector("h2").innerText = `${p1.icon}'s win the game`
+        document.querySelector("h2").innerText = `${p1.name} wins the game`
         document.getElementById("winMsg").classList.remove('hidden')
+        let curScore = localStorage.getItem('p1score')
+        console.log(curScore)
+        localStorage.setItem('p1score',parseInt(curScore)+1)
+        //localStorage.setItem('p1score',11)
+
         gameOver = true
         highlightWinner('r',row0,row1,row2)
     } else if (row0 === p2.winString || row1 === p2.winString || row2 === p2.winString){
-        document.querySelector("h2").innerText = `${p2.icon}'s win the game`
+        document.querySelector("h2").innerText = `${p2.name} wins the game`
         document.getElementById("winMsg").classList.remove('hidden')
         gameOver = true
         highlightWinner('r',row0,row1,row2)
     } else if (col0 === p1.winString || col1 === p1.winString || col2 === p1.winString){
-        document.querySelector("h2").innerText = `${p1.icon}'s win the game`
+        document.querySelector("h2").innerText = `${p1.name} wins the game`
         document.getElementById("winMsg").classList.remove('hidden')
         gameOver = true
         highlightWinner('c',col0,col1,col2)
     } else if (col0 === p2.winString || col1 === p2.winString || col2 === p2.winString){
-        document.querySelector("h2").innerText = `${p2.icon}'s win the game`
+        document.querySelector("h2").innerText = `${p2.name} wins the game`
         document.getElementById("winMsg").classList.remove('hidden')
         gameOver = true
         highlightWinner('c',col0,col1,col2)
       } else if (dia1 === p1.winString || dia2 === p1.winString){
-        document.querySelector("h2").innerText = `${p1.icon}'s win the game`
+        document.querySelector("h2").innerText = `${p1.name} wins the game`
         document.getElementById("winMsg").classList.remove('hidden')
         gameOver = true
         highlightWinner('d', dia1, dia2)
       } else if (dia1 === p2.winString || dia2 === p2.winString){
-        document.querySelector("h2").innerText = `${p2.icon}'s win the game`
+        document.querySelector("h2").innerText = `${p2.name} wins the game`
         document.getElementById("winMsg").classList.remove('hidden')
         gameOver = true
         highlightWinner('d', dia1, dia2)
@@ -147,7 +156,7 @@ function highlightWinner(winType,a,b,c = 0){
       document.getElementById("square10").classList.add('winner')
       document.getElementById("square11").classList.add('winner')
       document.getElementById("square12").classList.add('winner')
-    } else if (c === p.winString || c === p2.winString){
+    } else if (c === p1.winString || c === p2.winString){
       document.getElementById("square20").classList.add('winner')
       document.getElementById("square21").classList.add('winner')
       document.getElementById("square22").classList.add('winner')
@@ -180,8 +189,20 @@ function highlightWinner(winType,a,b,c = 0){
 }
 
 //Adding JS for reset
-document.querySelector('#reset').addEventListener('click' , function (r) {
-    localStorage.clear(p1)
-    localStorage.clear(p2)
+document.querySelector('#resetGame').addEventListener('click' , function (r) {
     document.location.reload(true)
+})
+
+//Adding reset game board for new game
+document.querySelector('#resetBoard').addEventListener('click', function (r) {
+    console.log('...Reset Board...')
+    document.getElementById("square00").innerText = ''
+    document.getElementById("square01").innerText = ''
+    document.getElementById("square02").innerText = ''
+    document.getElementById("square10").innerText = ''
+    document.getElementById("square11").innerText = ''
+    document.getElementById("square12").innerText = ''
+    document.getElementById("square20").innerText = ''
+    document.getElementById("square21").innerText = ''
+    document.getElementById("square22").innerText = ''
 })
