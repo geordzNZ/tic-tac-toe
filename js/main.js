@@ -205,4 +205,16 @@ document.querySelector('#resetBoard').addEventListener('click', function (r) {
     document.getElementById("square20").innerText = ''
     document.getElementById("square21").innerText = ''
     document.getElementById("square22").innerText = ''
+
+    document.getElementById("square00").classList.remove('winner')
+    document.getElementById("square01").classList.remove('winner')
+    document.getElementById("square02").classList.remove('winner')
+    document.getElementById("square10").classList.remove('winner')
+    document.getElementById("square11").classList.remove('winner')
+    document.getElementById("square12").classList.remove('winner')
+    document.getElementById("square20").classList.remove('winner')
+    document.getElementById("square21").classList.remove('winner')
+    document.getElementById("square22").classList.remove('winner')
+  
+    document.getElementById("winMsg").classList.add('hidden')
 })
