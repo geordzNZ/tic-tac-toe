@@ -20,12 +20,12 @@
         <h3>Options</h3>
         <div id="p1" class="player">
           <span class="playerHdr">P1:</span> 
-          <input type="text" name="" id="p1Name" class="input name" value="">
+          <input type="text" name="" id="p1Name" class="input name" value="Geo">
           <input type="text" name="" id="p1Icon" class="input icon" value="" disabled>
         </div>
         <div id="p2" class="player">
           <span class="playerHdr">P2:</span>
-          <input type="text" name="p2Name" id="p2Name" class="input name" value="">
+          <input type="text" name="p2Name" id="p2Name" class="input name" value="Yash">
           <input type="text" name="p2Icon" id="p2Icon" class="input icon" value="" disabled>
         </div>
         <div id="optionButtons">
@@ -49,7 +49,8 @@
         <div id="square21" class="square row2 col1"></div>
         <div id="square22" class="square row2 col2 dia1"></div>
       </div>
-      <h2>Winner goes here</h2>
+          <h2 id="winMsg" class="hidden"></h2>
+      
     </div>
     <div id="scoreboard">
       <h3>Scoreboard</h3>
@@ -70,5 +71,8 @@
 </div> -->
 
 		<script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/player.js"></script>
+    <script type="text/javascript" src="js/grid.js"></script>
 	</body>
 </html>
+
