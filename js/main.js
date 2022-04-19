@@ -110,37 +110,37 @@ document.getElementById('gameBoard').addEventListener('click', function(e) {
         highlightWinner('r',row0,row1,row2)
         updateScores('p1')
     } else if (row0 === p2.winString || row1 === p2.winString || row2 === p2.winString){
-        document.querySelector("h2").innerText = `${p2.name} wins the game`
+        document.getElementById("winMsg").innerText = `${p2.name} wins the game`
         document.getElementById("winMsg").classList.remove('hidden')
         gameOver = true
         highlightWinner('r', row0, row1, row2)
         updateScores('p2')
     } else if (col0 === p1.winString || col1 === p1.winString || col2 === p1.winString){
-        document.querySelector("h2").innerText = `${p1.name} wins the game`
+        document.getElementById("winMsg").innerText = `${p1.name} wins the game`
         document.getElementById("winMsg").classList.remove('hidden')
         gameOver = true
         highlightWinner('c', col0, col1, col2)
         updateScores('p1')
     } else if (col0 === p2.winString || col1 === p2.winString || col2 === p2.winString){
-        document.querySelector("h2").innerText = `${p2.name} wins the game`
+        document.getElementById("winMsg").innerText = `${p2.name} wins the game`
         document.getElementById("winMsg").classList.remove('hidden')
         gameOver = true
         highlightWinner('c', col0, col1, col2)
         updateScores('p2')
       } else if (dia1 === p1.winString || dia2 === p1.winString){
-        document.querySelector("h2").innerText = `${p1.name} wins the game`
+        document.getElementById("winMsg").innerText = `${p1.name} wins the game`
         document.getElementById("winMsg").classList.remove('hidden')
         gameOver = true
         highlightWinner('d', dia1, dia2)
         updateScores('p1')
       } else if (dia1 === p2.winString || dia2 === p2.winString){
-        document.querySelector("h2").innerText = `${p2.name} wins the game`
+        document.getElementById("winMsg").innerText = `${p2.name} wins the game`
         document.getElementById("winMsg").classList.remove('hidden')
         gameOver = true
         highlightWinner('d', dia1, dia2)
         updateScores('p2')
       } else if (ctr === 10) {
-          document.querySelector("h2").innerText = `No-one wins ... try again`
+          document.getElementById("winMsg").innerText = `No-one wins ... try again`
           document.getElementById("winMsg").classList.remove('hidden')
           gameOver = true
       }
