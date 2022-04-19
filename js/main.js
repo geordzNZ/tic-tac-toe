@@ -71,7 +71,7 @@ document.getElementById('gameBoard').addEventListener('click', function(e) {
     console.log('...GAME ENGINE...')
   if (p1.name === undefined || p2.name === undefined) { playerSetup()}
     
-
+   const winMsg = winMsg
   let curSelection = e.target
     let curID = e.target.id
     let rowNum = curID.substring(6,7)
@@ -104,44 +104,44 @@ document.getElementById('gameBoard').addEventListener('click', function(e) {
     let dia2 = (arrGameBoard[0][2] + arrGameBoard[1][1] + arrGameBoard[2][0])
 
     if (row0 === p1.winString || row1 === p1.winString || row2 === p1.winString){
-        document.getElementById("winMsg").innerText = `${p1.name} wins the game`
-        document.getElementById("winMsg").classList.remove('hidden')
+        winMsg.innerText = `${p1.name} wins the game`
+        winMsg.classList.remove('hidden')
         gameOver = true
         highlightWinner('r',row0,row1,row2)
         updateScores('p1')
     } else if (row0 === p2.winString || row1 === p2.winString || row2 === p2.winString){
-        document.getElementById("winMsg").innerText = `${p2.name} wins the game`
-        document.getElementById("winMsg").classList.remove('hidden')
+        winMsg.innerText = `${p2.name} wins the game`
+        winMsg.classList.remove('hidden')
         gameOver = true
         highlightWinner('r', row0, row1, row2)
         updateScores('p2')
     } else if (col0 === p1.winString || col1 === p1.winString || col2 === p1.winString){
-        document.getElementById("winMsg").innerText = `${p1.name} wins the game`
-        document.getElementById("winMsg").classList.remove('hidden')
+        winMsg.innerText = `${p1.name} wins the game`
+        winMsg.classList.remove('hidden')
         gameOver = true
         highlightWinner('c', col0, col1, col2)
         updateScores('p1')
     } else if (col0 === p2.winString || col1 === p2.winString || col2 === p2.winString){
-        document.getElementById("winMsg").innerText = `${p2.name} wins the game`
-        document.getElementById("winMsg").classList.remove('hidden')
+        winMsg.innerText = `${p2.name} wins the game`
+        winMsg.classList.remove('hidden')
         gameOver = true
         highlightWinner('c', col0, col1, col2)
         updateScores('p2')
       } else if (dia1 === p1.winString || dia2 === p1.winString){
-        document.getElementById("winMsg").innerText = `${p1.name} wins the game`
-        document.getElementById("winMsg").classList.remove('hidden')
+        winMsg.innerText = `${p1.name} wins the game`
+        winMsg.classList.remove('hidden')
         gameOver = true
         highlightWinner('d', dia1, dia2)
         updateScores('p1')
       } else if (dia1 === p2.winString || dia2 === p2.winString){
-        document.getElementById("winMsg").innerText = `${p2.name} wins the game`
-        document.getElementById("winMsg").classList.remove('hidden')
+        winMsg.innerText = `${p2.name} wins the game`
+        winMsg.classList.remove('hidden')
         gameOver = true
         highlightWinner('d', dia1, dia2)
         updateScores('p2')
       } else if (ctr === 10) {
-          document.getElementById("winMsg").innerText = `No-one wins ... try again`
-          document.getElementById("winMsg").classList.remove('hidden')
+          winMsg.innerText = `No-one wins ... try again`
+          winMsg.classList.remove('hidden')
           gameOver = true
       }
   }
@@ -224,7 +224,7 @@ document.querySelector('#resetBoard').addEventListener('click', function (r) {
     document.getElementById("square21").classList.remove('winner')
     document.getElementById("square22").classList.remove('winner')
   
-    document.getElementById("winMsg").classList.add('hidden')
+    winMsg.classList.add('hidden')
 
     ctr = 1
     gameOver = false
