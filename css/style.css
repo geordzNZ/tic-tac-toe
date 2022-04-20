@@ -28,6 +28,7 @@ body {
   /* border: 1px black solid; */
   width: 80%;
   margin: auto;
+  font-family: 'Goldman', cursive;
 }
 
 
@@ -47,10 +48,16 @@ body {
 /*******************************************/
 h1, h2, h3{
   text-align: center;
+  
+}
+h1{
+font-size: 4rem;
 }
 h2{
   color: seagreen;
   border: 1px seagreen solid;
+font-size: 2rem;
+
 }
 h4{
   margin-bottom: 0px;
@@ -110,17 +117,12 @@ h4{
   color: white;
 }
 
-#gameBoard2{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-}
-
 
 .input{
   height: 1.5rem;
   border-radius: 3px;
   border: none;
+    background-color: antiquewhite;
 }
 .name{
   width: 150px
