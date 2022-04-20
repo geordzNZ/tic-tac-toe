@@ -9,6 +9,7 @@ class Player{
   }
 }
 
+
 // EVENT HANDLERS
 document.getElementById('setPlayers').addEventListener('click', playerSetup)
 
@@ -19,13 +20,11 @@ let ctr = 1
 let gameOver = false
 let p1 = new Player(document.querySelector('#p1Name').value)
 let p2 = new Player(document.querySelector('#p2Name').value)
+const squares = [ "square00","square01","square02",
+                           "square10", "square11", "square12",
+                           "square20","square21","square22"]
 localStorage.setItem('p1score', 0)
 localStorage.setItem('p2score', 0)
- 
-console.log('a', p1)
-console.log('a',p2)
-
-
 
 
 function playerSetup(){
@@ -204,25 +203,11 @@ document.querySelector('#resetGame').addEventListener('click' , function (r) {
 //Adding reset game board for new game
 document.querySelector('#resetBoard').addEventListener('click', function (r) {
     console.log('...Reset Board...')
-    document.getElementById("square00").innerText = ''
-    document.getElementById("square01").innerText = ''
-    document.getElementById("square02").innerText = ''
-    document.getElementById("square10").innerText = ''
-    document.getElementById("square11").innerText = ''
-    document.getElementById("square12").innerText = ''
-    document.getElementById("square20").innerText = ''
-    document.getElementById("square21").innerText = ''
-    document.getElementById("square22").innerText = ''
 
-    document.getElementById("square00").classList.remove('winner')
-    document.getElementById("square01").classList.remove('winner')
-    document.getElementById("square02").classList.remove('winner')
-    document.getElementById("square10").classList.remove('winner')
-    document.getElementById("square11").classList.remove('winner')
-    document.getElementById("square12").classList.remove('winner')
-    document.getElementById("square20").classList.remove('winner')
-    document.getElementById("square21").classList.remove('winner')
-    document.getElementById("square22").classList.remove('winner')
+    squares.forEach(sq => {
+        document.getElementById(sq).innerText = ''
+        document.getElementById(sq).classList.remove('winner')
+    })
   
     winMsg.classList.add('hidden')
 
