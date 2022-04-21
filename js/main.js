@@ -70,7 +70,8 @@ document.getElementById('gameBoard').addEventListener('click', function(e) {
     console.log('...GAME ENGINE...')
   if (p1.name === undefined || p2.name === undefined) { playerSetup()}
     
-   const winMsg = winMsg
+//    const winMsg = document.getElementById("winMsgName")
+    const winMsg = winMsg
   let curSelection = e.target
     let curID = e.target.id
     let rowNum = curID.substring(6,7)
@@ -103,37 +104,37 @@ document.getElementById('gameBoard').addEventListener('click', function(e) {
     let dia2 = (arrGameBoard[0][2] + arrGameBoard[1][1] + arrGameBoard[2][0])
 
     if (row0 === p1.winString || row1 === p1.winString || row2 === p1.winString){
-        winMsg.innerText = `${p1.name} wins the game`
+        winMsg.innerText = `${p1.name}`
         winMsg.classList.remove('hidden')
         gameOver = true
         highlightWinner('r',row0,row1,row2)
         updateScores('p1')
     } else if (row0 === p2.winString || row1 === p2.winString || row2 === p2.winString){
-        winMsg.innerText = `${p2.name} wins the game`
+        winMsg.innerText = `${p2.name}`
         winMsg.classList.remove('hidden')
         gameOver = true
         highlightWinner('r', row0, row1, row2)
         updateScores('p2')
     } else if (col0 === p1.winString || col1 === p1.winString || col2 === p1.winString){
-        winMsg.innerText = `${p1.name} wins the game`
+        winMsg.innerText = `${p1.name}`
         winMsg.classList.remove('hidden')
         gameOver = true
         highlightWinner('c', col0, col1, col2)
         updateScores('p1')
     } else if (col0 === p2.winString || col1 === p2.winString || col2 === p2.winString){
-        winMsg.innerText = `${p2.name} wins the game`
+        winMsg.innerText = `${p2.name}`
         winMsg.classList.remove('hidden')
         gameOver = true
         highlightWinner('c', col0, col1, col2)
         updateScores('p2')
       } else if (dia1 === p1.winString || dia2 === p1.winString){
-        winMsg.innerText = `${p1.name} wins the game`
+        winMsg.innerText = `${p1.name}`
         winMsg.classList.remove('hidden')
         gameOver = true
         highlightWinner('d', dia1, dia2)
         updateScores('p1')
       } else if (dia1 === p2.winString || dia2 === p2.winString){
-        winMsg.innerText = `${p2.name} wins the game`
+        winMsg.innerText = `${p2.name}`
         winMsg.classList.remove('hidden')
         gameOver = true
         highlightWinner('d', dia1, dia2)

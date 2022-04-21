@@ -80,18 +80,22 @@ h4{
   display: grid;
   grid-template-columns: 30% 50% 20%;
   justify-content:space-between;
-    border: 1px red solid;
+    /* border: 1px red solid; */
 }
 .playerHdr{
   font-size: 1.5rem;
 }
 #optionButtons{
   display: grid;
-  grid-template-columns: repeat(1fr,1fr,1fr);
-  column-gap: 2rem;
-  justify-content: space-between;
+  grid-template-rows: 2em 2em 2em;
+  row-gap: .10em;
+  /* border: 1px dotted blue; */
 }
 
+button{
+    width: 80%;
+    margin: auto;
+}
 #gameBoard{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -114,7 +118,7 @@ h4{
 }
 .winner{
   background: seagreen;
-  font-size: 4rem;
+  font-size: 3rem;
   color: white;
 }
 
@@ -137,14 +141,13 @@ h4{
   text-align: center;
  }
 
- #winMsg{
+ .winMsg{
    position: absolute;
-   width: 380px;
+   /* width: 380px; */
    height: 50px;
    vertical-align: center;
    background: seagreen;
    color: white;
-   letter-spacing: 1.5px;
    border-radius: 5px;
    border: 1px blue solid;
    align-items: center;
