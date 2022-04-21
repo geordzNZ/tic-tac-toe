@@ -24,7 +24,7 @@
 body {
   display:grid;
   align-content: center;
-  background: beige;
+  background: antiquewhite;
   /* border: 1px black solid; */
   width: 80%;
   margin: auto;
@@ -64,22 +64,23 @@ h4{
 }
 
 #gameContainer{
-  /* border: 1px solid yellow; */
+  border: 1px solid blue;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 1rem;
   margin: 0px auto;
   justify-content: space-between;
-  width: 80%;
+  width: 900px;
 }
 #options{
   display: block;
-  /* border: 1px solid black; */
+  border: 1px solid black;
 }
 .player{
   display: grid;
-  grid-template-columns: repeat(3, 25% 50% 25%);
+  grid-template-columns: 30% 50% 20%;
   justify-content:space-between;
+    border: 1px red solid;
 }
 .playerHdr{
   font-size: 1.5rem;
@@ -122,7 +123,7 @@ h4{
   height: 1.5rem;
   border-radius: 3px;
   border: none;
-    background-color: antiquewhite;
+    background-color: beige;
 }
 .name{
   width: 150px
