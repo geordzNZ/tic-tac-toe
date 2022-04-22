@@ -48,17 +48,10 @@
   /*******************************************/
   h1, h2, h3{
     text-align: center;
-    
+    color: seagreen;
   }
   h1{
   font-size: 4rem;
-  }
-  h3{
-    color: seagreen;
-    /* border: 1px seagreen solid; */
-  }
-  h4{
-    margin-bottom: 0px;
   }
   
   #gameContainer{
