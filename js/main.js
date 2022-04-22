@@ -29,11 +29,13 @@ localStorage.setItem('p2score', 0)
 
 function playerSetup(){
   console.log('...playerSetup...')
-    console.log('b', p1)
-    console.log('b', p2)
+
     
     p1 = new Player(document.querySelector('#p1Name').value)
     p2 = new Player(document.querySelector('#p2Name').value)
+    
+    console.log('b', p1)
+    console.log('b', p2)
 
     if (p1.name == '') {
         alert('Please enter Player 1 name')
@@ -70,8 +72,8 @@ document.getElementById('gameBoard').addEventListener('click', function(e) {
     console.log('...GAME ENGINE...')
   if (p1.name === undefined || p2.name === undefined) { playerSetup()}
     
-//    const winMsg = document.getElementById("winMsgName")
-    const winMsg = winMsg
+    const winMsgName = document.getElementById("winMsgName")
+    const winMsgSubText = document.getElementById("winMsgSubText")
   let curSelection = e.target
     let curID = e.target.id
     let rowNum = curID.substring(6,7)
@@ -104,44 +106,51 @@ document.getElementById('gameBoard').addEventListener('click', function(e) {
     let dia2 = (arrGameBoard[0][2] + arrGameBoard[1][1] + arrGameBoard[2][0])
 
     if (row0 === p1.winString || row1 === p1.winString || row2 === p1.winString){
-        winMsg.innerText = `${p1.name}`
-        winMsg.classList.remove('hidden')
+        winMsgName.innerText = `${p1.name}`
+        winMsgName.classList.remove('hidden')
+        winMsgSubText.classList.remove('hidden')
         gameOver = true
         highlightWinner('r',row0,row1,row2)
         updateScores('p1')
     } else if (row0 === p2.winString || row1 === p2.winString || row2 === p2.winString){
-        winMsg.innerText = `${p2.name}`
-        winMsg.classList.remove('hidden')
+        winMsgName.innerText = `${p2.name}`
+        winMsgName.classList.remove('hidden')
+        winMsgSubText.classList.remove('hidden')
         gameOver = true
         highlightWinner('r', row0, row1, row2)
         updateScores('p2')
     } else if (col0 === p1.winString || col1 === p1.winString || col2 === p1.winString){
-        winMsg.innerText = `${p1.name}`
-        winMsg.classList.remove('hidden')
+        winMsgName.innerText = `${p1.name}`
+        winMsgName.classList.remove('hidden')
+        winMsgSubText.classList.remove('hidden')
         gameOver = true
         highlightWinner('c', col0, col1, col2)
         updateScores('p1')
     } else if (col0 === p2.winString || col1 === p2.winString || col2 === p2.winString){
-        winMsg.innerText = `${p2.name}`
-        winMsg.classList.remove('hidden')
+        winMsgName.innerText = `${p2.name}`
+        winMsgName.classList.remove('hidden')
+        winMsgSubText.classList.remove('hidden')
         gameOver = true
         highlightWinner('c', col0, col1, col2)
         updateScores('p2')
       } else if (dia1 === p1.winString || dia2 === p1.winString){
-        winMsg.innerText = `${p1.name}`
-        winMsg.classList.remove('hidden')
+        winMsgName.innerText = `${p1.name}`
+        winMsgName.classList.remove('hidden')
+        winMsgSubText.classList.remove('hidden')
         gameOver = true
         highlightWinner('d', dia1, dia2)
         updateScores('p1')
       } else if (dia1 === p2.winString || dia2 === p2.winString){
-        winMsg.innerText = `${p2.name}`
-        winMsg.classList.remove('hidden')
+        winMsgName.innerText = `${p2.name}`
+        winMsgName.classList.remove('hidden')
+        winMsgSubText.classList.remove('hidden')
         gameOver = true
         highlightWinner('d', dia1, dia2)
         updateScores('p2')
       } else if (ctr === 10) {
-          winMsg.innerText = `No-one wins ... try again`
-          winMsg.classList.remove('hidden')
+          winMsgName.innerText = `No-one wins ... try again`
+          winMsgName.classList.remove('hidden')
+          //winMsgSubText.classList.remove('hidden')
           gameOver = true
       }
   }
@@ -210,7 +219,8 @@ document.querySelector('#resetBoard').addEventListener('click', function (r) {
         document.getElementById(sq).classList.remove('winner')
     })
   
-    winMsg.classList.add('hidden')
+    winMsgName.classList.add('hidden')
+    winMsgSubText.classList.add('hidden')
 
     ctr = 1
     gameOver = false
